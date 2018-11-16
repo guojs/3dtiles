@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Use correct character set. -->
+	<meta charset="utf-8">
+	<!-- Tell IE to use the latest, best version. -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>3D House</title>
+	<script src="http://192.168.0.218:8055/Build/Cesium/Cesium.js"></script>
+	<script src="/js/jquery.slim.min.js"></script>
+	<style>
+		@import url(http://192.168.0.218:8055/Build/Cesium/Widgets/widgets.css);
+		@import url(/css/house.css);
+		@import url(/css/DrawHelper.css);
+	</style>
+</head>
+
+<body>
+	<!-- <div class="header">智慧小区综合管理信息系统</div> -->
+	<div class="oprater">
+		<div><span>阴影：</span><input type="checkbox" id='shade'> </div>
+		<div><span>楼栋标注:</span><input type="checkbox" id='buildLabel'></div>
+	</div>
+	<div id='menu'>
+		<a id='buildInfo'>建筑信息</a>
+		<a id='houseInfo'>住户管理</a>
+		<a id='safe'>安防监控</a>
+		<a id='tumple'>综合管廊</a>
+		<a id='weijian'>违建管理</a>
+	</div>
+	<div id='infobox'>
+		<div class="info-header">
+			<a class="select" data-item='data1'>住户信息</a><a data-item='data2'>基本信息</a><a data-item='data3'>户型图</a><a data-item='data4'>配套设备</a>
+		</div>
+		<div class="info-content select" data-item='data1'>
+			<div class="huzhu"><span>户主：张有才</span> <span>户号：XHJY892BH002</span></div>
+			<table>
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>性别</th>
+						<th>年龄</th>
+						<th>工作单位</th>
+						<th>身份证号</th>
+						<th>户主关系</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>张有才</td>
+						<td>男</td>
+						<td>38</td>
+						<td>某事业单位</td>
+						<td>430102********3632</td>
+						<td>户主</td>
+					</tr>
+					<tr>
+						<td>李淑芳</td>
+						<td>女</td>
+						<td>35</td>
+						<td>某事业单位</td>
+						<td>430102********3658</td>
+						<td>妻子</td>
+					</tr>
+					<tr>
+						<td>张小宝</td>
+						<td>男</td>
+						<td>8</td>
+						<td>某小学</td>
+						<td>430102********3834</td>
+						<td>儿子</td>
+					</tr>
+					<tr>
+						<td>张小欣</td>
+						<td>女</td>
+						<td>6</td>
+						<td>某小学</td>
+						<td>430102********3984</td>
+						<td>女儿</td>
+					</tr>
+					<tr>
+						<td>张建国</td>
+						<td>男</td>
+						<td>65</td>
+						<td>退休</td>
+						<td>430102********8569</td>
+						<td>父亲</td>
+					</tr>
+					<tr>
+						<td>刘秀敏</td>
+						<td>女</td>
+						<td>61</td>
+						<td>退休</td>
+						<td>430102********4587</td>
+						<td>母亲</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="info-content " data-item='data2'>
+			<div class="baseInfo">
+				<div>
+					<span>所属小区：香河佳园</span>
+					<span>所在位置：劳动西路5号</span>
+					<span>建造年代：2012年</span>
+					<span>房屋类型：普通住宅</span>
+					<span>产权年限：70年</span>
+					<span>产权性质：商品房</span>
+				</div>
+				<div>
+					<span>房屋户型：2室2厅2卫</span>
+					<span>建筑面积：103.5㎡</span>
+					<span>房屋朝向：男</span>
+					<span>所在楼层：中层</span>
+					<span>配套电梯:有</span>
+					<span>唯一住房:是</span>
+				</div>
+				<div>
+					<span>房屋单价:9894元/㎡</span>
+					<span>参考首付：36.00W</span>
+					<span>参考月供：7067元</span>
+					<span>装修程度:精装修</span>
+					<span>房本年限:满五年</span>
+				</div>
+			</div>
+		</div>
+		<div class="info-content" data-item='data3'>
+			<img class="hxt" style='width:100%;' src='img/hxt2.jpg'>
+		</div>
+		<div class="info-content matting" data-item='data4'>
+			<div>
+				<p>附近学校</p>
+				<p>天华寄宿制学校； 长沙市雨花区金海中学； 长郡雨花外国语学校； 雨花区和平小学； 青园小学； 雨花区红星第二小学； 洞井小学； 大塘小学； 砂子塘湘天小学； 桂花坪小学； 吉纽思国际幼儿园； 圭星小学；</p>
+			</div>
+			<div>
+				<p>交通</p>
+				<p>北门：W106 211 134; 南门：783，23</p>
+			</div>
+			<div>
+				<p>医院</p>
+				<p>市地二人民医院</p>
+			</div>
+			<div>
+				<p>购物娱乐</p>
+				<p>沃尔玛、步步高、家乐福</p>
+			</div>
+
+		</div>
+	</div>
+	<div id='bInfo'>
+		<div>名称：香河佳园9栋</div>
+		<div class="buildcontent">
+			<div>
+				<span>建筑面积：13000㎡</span>
+				<span>占地面积：1040㎡</span>
+				<span>楼高：52㎡</span>
+				<span>楼层：16</span>
+				 <span>开发商：万科</span>
+			</div>
+			<div>
+				<span>总户数：148户</span>
+				<span>登记居住人数：612人</span>
+				<span>建筑时间：2007年</span>
+				<span>物业：香河物业有限公司</span>
+			</div>
+		</div>
+
+
+	</div>
+	<div id="toolTip"></div>
+	<div class="tool">
+		<span id='toolLength'><img src='/img/length.png'></span>
+		<span id='toolArea'><img src='/img/area.png'></span>
+	</div>
+	<div id="cesiumContainer"></div>
+
+	<video id="trailer" style='display:none' muted="" autoplay="" loop="" crossorigin="" controls="">
+			<source src="https://cesiumjs.org/videos/Sandcastle/big-buck-bunny_trailer.webm" type="video/webm">
+			<source src="https://cesiumjs.org/videos/Sandcastle/big-buck-bunny_trailer.mp4" type="video/mp4">
+			<source src="https://cesiumjs.org/videos/Sandcastle/big-buck-bunny_trailer.mov" type="video/quicktime">
+			Your browser does not support the <code>video</code> element.
+	</video>
+		
+
+</body>
+<script src='/js/DrawHelper.js'></script>
+<script src='/js/house.js'></script>
+</html>

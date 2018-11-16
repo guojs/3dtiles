@@ -1,0 +1,266 @@
+html,
+body,
+#cesiumContainer {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.cesium-viewer-animationContainer{
+    display: none;
+}
+body {
+    position: relative;
+}
+#logging{
+    position: absolute;
+    bottom:5px;
+    background:#f8f8f8;
+    z-index: 9999;
+    border-radius:4px;
+    padding:2px 5px;
+    color:#3c3b3b;
+    font-size:12px;
+}
+#tool {
+    position: absolute;
+    top: 0px;
+    left: 200;
+    display: none;
+    margin: 10px;
+    padding: 0px;
+    background: white;
+    z-index: 9999;
+}
+
+.header{
+    height:80px;
+    text-shadow: 2px 2px 2px #000000;
+    background: #3c3b3b;
+    color:white;
+    font-size:25px;
+    letter-spacing: 5px;
+    line-height: 80px;
+    text-align:center;
+    width:100%;
+}
+#infobox{
+   position: absolute;
+   top:130px;
+   right:0px;
+   z-index: 9999;
+   width:441px;
+   /* height:450px; */
+   background: #3c3b3b;
+   border-radius:8px;
+   opacity: 0.8;
+   border:1px solid #666;
+   /* visibility: hidden; */
+}
+
+#bInfo{
+    position: absolute;
+   top:130px;
+   right:0px;
+   z-index: 9999;
+   width:441px;
+   color:white;
+   /* height:450px; */
+   background: #3c3b3b;
+   border-radius:8px;
+   opacity: 0.8;
+   border:1px solid #666;
+   padding:10px;
+
+}
+
+.buildcontent{
+   margin-top:20px;
+   display: flex;
+   justify-content: space-around;
+  
+}
+.buildcontent span{
+    display: block;
+    padding:4px 0;
+}
+.info-header{
+    height:30px;
+    /* padding-left:5px; */
+    padding-right:5px;
+    border-top-left-radius:8px;
+    border-top-right-radius:8px;
+    background: #222;
+    opacity: 1;
+}
+.info-header>a{
+    display: inline-block;
+    width:100px;
+    color:white;
+    cursor:pointer;
+    /* border-radius:4px; */
+    padding:4px;
+    text-align:center;
+    border-right:1px solid #666;
+}
+.info-header>a:hover{
+    background: #3c3b3b;
+    opacity: 1;
+}
+.info-header>a:last-child{
+    border-right:0px solid #666;
+}
+.info-content{
+    width:100%;
+    height:100%;
+    padding:10px 5px;
+    display: none;
+    color:white;
+}
+ .huzhu{
+     font-size:18px;
+     padding: 10px 0px;
+     display: flex;
+     justify-content:space-around;
+     /* border-bottom: 1px solid #ccc; */
+ }
+
+ .matting>div>p:last-child{
+    text-indent: 2rem;
+    font-size:14px;
+ }
+
+ .info-content>table{
+    
+     width:98%;
+     border-collapse: collapse;
+     /* border:1px solid #ccc; */
+     text-align:center;
+     font-size:14px;
+ }
+ .info-content th{
+     font-size:16px;
+ }
+ .info-content tr{
+     padding:4px;
+ }
+ .info-content td,th{
+     padding:4px 0;
+     border:1px solid #ccc;
+     border-collapse: collapse;
+     text-align:center;
+ }
+
+ .baseInfo{
+     display: flex;
+     justify-content: space-around;
+ }
+ .baseInfo>div{
+     font-size:14px;
+     display:inline;
+ }
+ /* .baseInfo>div:nth-child(2){
+     border-left:1px solid #ccc;
+     border-right:1px solid #ccc;
+ } */
+ .baseInfo>div>span{
+     display: block;
+     padding:5px 0;
+ }
+  #toolTip{
+      position:absolute;
+      z-index: 998;
+      color:red;
+  }
+.tool {
+    position: absolute;
+    top: 50px;
+    left:400px;
+    height: 30px;
+    width: 200px;
+    background: white;
+    border-radius: 4px;
+    opacity: 50%;
+    z-index: 9999;
+    cursor: pointer;
+    padding: 4px 5px 4px 5px
+}
+
+.tool>span {
+    margin: 0 5px;
+    height: 32px;
+    display: inline-block;
+    border-radius: 4px;
+
+}
+
+.tool>span:hover {
+    background: #d3d3d3;
+}
+
+.oprater{
+    position:absolute;
+    background: #3c3b3b;
+    opacity: 0.8;
+    padding:10px;
+    top:50px;
+    left:20px;
+    z-index:999;
+    color:white;
+    width:100px;
+    border-radius: 8px;
+}
+.oprater>div{
+    height:30px;
+}
+.oprater span{
+    width:80px;
+    display: inline-block;
+}
+.oprater input{
+    cursor: pointer;
+}
+#menu{
+    padding:0px 0px;
+    position: absolute;
+    z-index:9999;
+    left:5px;
+    top:350px;
+    color:white;
+    background: #3c3b3b;
+    opacity: 0.8;
+    border:1px solid #666;
+    border-radius: 8px;
+}
+#menu>a{
+    display: block;
+    
+    font-size:16px;
+    padding:8px 20px;
+    cursor:pointer;
+    border-radius:4px;
+    border-bottom: 1px solid #666;
+}
+#menu>a:last-child{
+    border-bottom: 0px;
+}
+#menu>a:hover{
+    border:1px;
+    background:#222;
+    opacity: 1;
+}
+
+.select{
+    background: black;
+    display: block;
+    opacity: 0.9;
+}
+
+#trailer {
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    width: 320px;
+    height: 180px;
+}
