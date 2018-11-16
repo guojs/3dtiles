@@ -313,6 +313,24 @@
       var burstSize = 400.0;
       var lifetime = 10.0;
       var bursts=[];
+
+      var modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(Cesium.Cartesian3.fromDegrees(119.47754836863878, 35.435066326613835));
+      var emitterInitialLocation = new Cesium.Cartesian3(0.0, 0.0, 100.0);
+      var emitterModelMatrixScratch = new Cesium.Matrix4();
+      var xMin = -100.0;
+var xMax = 100.0;
+var yMin = -80.0;
+var yMax = 100.0;
+var zMin = -50.0;
+var zMax = 50.0;
+      var x = Cesium.Math.randomBetween(xMin, xMax);
+      var y = Cesium.Math.randomBetween(yMin, yMax);
+      var z = Cesium.Math.randomBetween(zMin, zMax);
+
+      var offset = new Cesium.Cartesian3(x, y, z);
+      var position = Cesium.Cartesian3.add(emitterInitialLocation, offset, new Cesium.Cartesian3());
+      var emitterModelMatrix = Cesium.Matrix4.fromTranslation(position, emitterModelMatrixScratch);
+     
       for (var j = 0; j < 3; ++j) {
         bursts.push(new Cesium.ParticleBurst({
             time : Cesium.Math.nextRandomNumber() * 5,
@@ -320,8 +338,22 @@
             maximum : burstSize
         }));
     }
+    
+var minimumExplosionSize = 30.0;
+var maximumExplosionSize = 100.0;
+    var particleToWorld = Cesium.Matrix4.multiply(modelMatrix, emitterModelMatrix, new Cesium.Matrix4());
+    var worldToParticle = Cesium.Matrix4.inverseTransformation(particleToWorld, particleToWorld);
+    var particlePositionScratch = new Cesium.Cartesian3();
+    
+    var size = Cesium.Math.randomBetween(minimumExplosionSize, maximumExplosionSize);
+    var force = function(particle) {
+        var position = Cesium.Matrix4.multiplyByPoint(worldToParticle, particle.position, particlePositionScratch);
+        if (Cesium.Cartesian3.magnitudeSquared(position) >= size * size) {
+            Cesium.Cartesian3.clone(Cesium.Cartesian3.ZERO, particle.velocity);
+        }
+    };
      viewer.scene.primitives.add(new Cesium.ParticleSystem({
-        image : '/img/fire.png',
+        image : 'img/fire.png',
         startColor : color,
         endColor : color.withAlpha(0.0),
         particleLife : 20,
@@ -336,8 +368,6 @@
         emitterModelMatrix : emitterModelMatrix
     }));
 
-    var modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883));
-    var emitterInitialLocation = new Cesium.Cartesian3(0.0, 0.0, 100.0);
 
 
 
